@@ -1,4 +1,0 @@
-Verkvaki-NodeJsServer
-=====================
-
-Realtime people
