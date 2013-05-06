@@ -12,6 +12,7 @@ io.configure(function () {
 
 io.sockets.on('connection', function (socket) {
   socket.on('UpdateHeader', function(message){
+    socket.broadcast.emit('news', message);
     socket.emit('news', message);
   });
   socket.on('CreateProj', function (data) {
