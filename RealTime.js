@@ -2,7 +2,6 @@ var app = require('express')()
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server, {transports:['flashsocket', 'websocket', 'htmlfile', 'xhr-polling', 'jsonp-polling']});
 
-server.listen(3000);
 
 var bleh = [];
 
@@ -21,3 +20,6 @@ io.sockets.on('connection', function (socket) {
 
 
 });
+
+port = process.env.PORT || 3000;
+server.listen(port);
