@@ -4,16 +4,20 @@ var app = require('express')()
 
 server.listen(3000);
 
-var bleh = [];
+var numUsers = 1;
 
 io.sockets.on('connection', function (socket) {
-  // socket.emit('news', { hello: 'world' });
+  //Upphafsstaða notenda skráðra inn
+  socket.emit('Index', numUsers);
+
   socket.on('UpdateHeader', function(message){
     socket.broadcast.emit('news', message);
     socket.emit('news', message);
   });
-  socket.on('CreateProj', function (data) {
-    bleh.push(data);
+  socket.on('UsersLoggedIn', function (data) {
+    numUsers = data.obj;
+    socket.broadcast.emit('Index', data);
+    socket.emit('Index', data);
   });
 
 
