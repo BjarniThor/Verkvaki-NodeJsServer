@@ -15,7 +15,7 @@ io.sockets.on('connection', function (socket) {
     socket.emit('news', message);
   });
   socket.on('UsersLoggedIn', function (data) {
-    numUsers = data.obj;
+    numUsers = data;
     socket.broadcast.emit('Index', data);
     socket.emit('Index', data);
   });
