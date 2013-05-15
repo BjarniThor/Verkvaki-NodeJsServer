@@ -3,7 +3,7 @@ var app = require('express')()
   , io = require('socket.io').listen(server, {transports:['flashsocket', 'websocket', 'htmlfile', 'xhr-polling', 'jsonp-polling']});
 
 
-var numUsers;
+var numUsers = 0;
 var bleh = ["Forstillt"];
 var foo = [];
 
